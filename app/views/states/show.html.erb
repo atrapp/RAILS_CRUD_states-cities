@@ -1,0 +1,22 @@
+<h2>State Data</h2>
+
+<table>
+    <tr>
+        <td>Name:</td>
+        <td><%= @state.name %></td>
+    </tr>
+    <tr>
+        <td>Abbreviation:</td>
+        <td><%= @state.abbreviation %></td>
+    </tr>
+</table>
+
+<section>
+    <a href="/states/<%= @state.id %>/edit"><button>EDIT</button></a>
+
+    <form action="/states/<%= @state.id%>" method="post">
+      <%= token_tag %>
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="DELETE">
+    </form>
+</section>

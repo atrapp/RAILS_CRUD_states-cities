@@ -1,0 +1,11 @@
+<h2>All States</h2>
+
+<table>
+    <% @states.each do |state| %>
+        <tr>
+            <td><%= state.name %></td>
+            <td><%= state.abbreviation %></td>
+            <td><a href="/states/<%= state.id %>"><button>SHOW</button></a></td> 
+        </tr>
+    <% end %>
+ </table>

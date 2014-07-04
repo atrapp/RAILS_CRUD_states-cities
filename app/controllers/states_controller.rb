@@ -5,6 +5,7 @@ class StatesController < ApplicationController
   end
 
   def new
+    @state = State.new   
     # show me a create form!!
   end
 
