@@ -11,7 +11,8 @@ class StatesController < ApplicationController
 
   def create
     new_state = State.create( state_params )
-    redirect_to "/states/#{new_state.id}"
+    # redirect_to "/states/#{new_state.id}"
+    redirect_to state_path(new_state)
   end
 
   def edit
@@ -22,7 +23,8 @@ class StatesController < ApplicationController
   def update
     edited_state = State.find( params[:id] )
     edited_state.update( state_params )
-    redirect_to "/states/#{edited_state.id}"
+    # redirect_to "/states/#{edited_state.id}"
+    redirect_to state_path(edited_state)
   end
 
   def show
@@ -32,7 +34,8 @@ class StatesController < ApplicationController
 
   def destroy
     State.delete( params[:id] )
-    redirect_to "/states"
+    # redirect_to "/states"
+    redirect_to states_path
   end
 
   private
