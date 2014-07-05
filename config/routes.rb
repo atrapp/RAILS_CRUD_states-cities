@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  root 'states#index'
+
   resources :states do
     resources :cities, except: [:show, :index]
   end
