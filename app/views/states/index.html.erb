@@ -1,26 +1,40 @@
 <h2>All States</h2>
 
-<table>
-    <% @states.each do |state| %>
-        <tr>
-            <td><%= state.name %></td>
-            <td><%= state.abbreviation %></td>
-            <td><a href="/states/<%= state.id %>"><button>SHOW State</button></a></td>
-        </tr>
 
-        <% state.cities.each do |city| %>
-            <tr>
-                <td><%= city.name %></td>
-                <td><%= city.population %></td>
-                <td><a href="/states/<%= state.id %>/cities/<%= city.id %>/edit"><button>Edit City</button></a></td>
-            </tr>  
+<% @states.each do |state| %>
+
+    <section>
+        <div>
+            <p><%= state.name %></p>
+            <p><%= state.abbreviation %></p>
+            <p><a href="/states/<%= state.id %>"><button>SHOW State</button></a></p>
+        </div>
+
+        <% state.cities.each do |city| %>        
+            <div>
+                <p><%= city.name %></p>
+                <p><%= city.population %></p>
+                <p><a href="/states/<%= state.id %>/cities/<%= city.id %>/edit"><button>Edit City</button></a></p>
+                <p>
+                    <form action="/states/<%= state.id%>/cities/<%= city.id %>" method="post">
+                      <%= token_tag %>
+                      <input type="hidden" name="_method" value="delete">
+                      <input type="submit" value="Delete City">
+                    </form>
+                </p>
+            </div>  
         <% end %>
         
-        <tr>
-            <td><a href="/states/<%= state.id %>/cities/new"><button>New City</button></a></td>
-        </tr>        
-    <% end %>
-    <tr>
-        <td><a href="/states/new"><button>NEW State</button></a></td>
-    </tr>   
- </table>
+        <div>
+            <p><a href="/states/<%= state.id %>/cities/new"><button>New City</button></a></p>
+        </div>
+    </section>
+    <hr />     
+<% end %>
+
+<div>
+    <p><a href="/states/new"><button>NEW State</button></a></p>
+</div>   
+
+
+
