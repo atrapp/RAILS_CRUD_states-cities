@@ -5,7 +5,22 @@
         <tr>
             <td><%= state.name %></td>
             <td><%= state.abbreviation %></td>
-            <td><a href="/states/<%= state.id %>"><button>SHOW</button></a></td> 
+            <td><a href="/states/<%= state.id %>"><button>SHOW State</button></a></td>
         </tr>
+
+        <% state.cities.each do |city| %>
+            <tr>
+                <td><%= city.name %></td>
+                <td><%= city.population %></td>
+                <td><a href="/states/<%= state.id %>/cities/<%= city.id %>/edit"><button>Edit City</button></a></td>
+            </tr>  
+        <% end %>
+        
+        <tr>
+            <td><a href="/states/<%= state.id %>/cities/new"><button>New City</button></a></td>
+        </tr>        
     <% end %>
+    <tr>
+        <td><a href="/states/new"><button>NEW State</button></a></td>
+    </tr>   
  </table>
