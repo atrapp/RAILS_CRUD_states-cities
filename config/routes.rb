@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
 end
 
-
 #          Prefix Verb   URI Pattern                                 Controller#Action
 #    state_cities POST   /states/:state_id/cities(.:format)          cities#create
 #  new_state_city GET    /states/:state_id/cities/new(.:format)      cities#new
